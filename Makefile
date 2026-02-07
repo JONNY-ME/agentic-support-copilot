@@ -1,4 +1,4 @@
-.PHONY: dev down logs api-shell worker-shell fmt test
+.PHONY: dev down logs api-shell worker-shell fmt test migrate seed
 
 dev:
 	docker compose up --build
@@ -20,3 +20,9 @@ fmt:
 
 test:
 	pytest -q
+
+migrate:
+	docker compose exec api alembic -c /app/alembic.ini upgrade head
+
+seed:
+	docker compose exec api python /app/scripts/dev/seed_demo.py

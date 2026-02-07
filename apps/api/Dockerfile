@@ -4,10 +4,13 @@ WORKDIR /app
 
 COPY requirements/ /app/requirements/
 RUN pip install --no-cache-dir -U pip \
-    && pip install --no-cache-dir -r /app/requirements/api.txt
+  && pip install --no-cache-dir -r /app/requirements/api.txt
 
 COPY apps/api/app /app/app
+COPY apps/api/alembic /app/alembic
+COPY apps/api/alembic.ini /app/alembic.ini
 COPY packages /app/packages
+COPY scripts /app/scripts
 
 ENV PYTHONPATH=/app
 
