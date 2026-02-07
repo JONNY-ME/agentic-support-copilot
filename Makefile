@@ -1,6 +1,5 @@
 .PHONY: dev down logs api-shell worker-shell fmt test
 
-
 dev:
 	docker compose up --build
 
@@ -16,7 +15,7 @@ api-shell:
 worker-shell:
 	docker compose exec worker bash
 
-fmt: 
+fmt:
 	python -m ruff format .
 
 test:

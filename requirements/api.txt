@@ -4,5 +4,6 @@ pydantic-settings==2.4.0
 
 sqlalchemy==2.0.34
 psycopg[binary]==3.2.2
+psycopg2-binary==2.9.9
 
 redis==5.0.8
