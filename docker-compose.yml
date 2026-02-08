@@ -37,5 +37,18 @@ services:
       - postgres
       - redis
 
+  telegram_bot:
+    build:
+      context: .
+      dockerfile: apps/telegram_bot/Dockerfile
+    env_file:
+      - .env
+    environment:
+      API_BASE_URL: http://api:8000
+    depends_on:
+      - api
+
+
 volumes:
   postgres_data:
+
