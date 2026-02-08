@@ -34,4 +34,6 @@ class CallbackResponse(BaseModel):
 
 class HandoffRequest(BaseModel):
     external_id: str
+    channel: str = Field(default="telegram")
+    language: str = Field(default="en")
     reason: str | None = None
