@@ -10,6 +10,8 @@ from app.core.language import detect_language
 from app.core.memory import MemoryStore
 from app.core.safety import is_payment_or_credentials_request, payment_refusal
 from app.services import tools_service
+from app.services.rag_service import answer_from_kb
+
 
 ORDER_ID_RE = re.compile(r"\bETH-\d+\b", re.IGNORECASE)
 
@@ -174,17 +176,23 @@ def handle_chat(
         mem.append_turn(external_id, role="assistant", content=reply, ts=datetime.now(timezone.utc))
         return {"external_id": external_id, "reply": reply, "routed_to": "create_ticket"}
 
-    # Fallback (until RAG is added)
+    # RAG fallback (until you move to LangGraph orchestration)
+    rag_answer, _chunks = answer_from_kb(db, message, lang)
+    if rag_answer:
+        mem.append_turn(external_id, role="assistant", content=rag_answer, ts=datetime.now(timezone.utc))
+        return {"external_id": external_id, "reply": rag_answer, "routed_to": "rag"}
+
+    # If nothing found, graceful fallback
     if lang == "am":
         reply = (
-            "እባክዎ ስለ መላኪያ አካባቢ፣ የዋጋ ዝርዝር፣ የትዕዛዝ ሁኔታ (ETH-1001 እንደሚል) "
-            "ወይም ቅሬታ ይጻፉ። እኔ ትኬት መክፈት እችላለሁ፣ የትዕዛዝም ሁኔታ እመልሳለሁ።"
+            "በአሁኑ የኩባንያ መረጃ ውስጥ ይህን አላገኘሁትም። "
+            "ተጨማሪ ዝርዝር ቢሰጡኝ እሞክራለሁ፣ ወይም ወደ ሰው ድጋፍ ልላክዎ እችላለሁ።"
         )
     else:
         reply = (
-            "Ask me about delivery areas, price lists, order status (example: ETH-1001), "
-            "or describe an issue and I can open a ticket. I can also schedule a callback."
+            "I could not find that in the provided knowledge base. "
+            "If you share a bit more detail, I can try again, or I can escalate you to a human."
         )
 
     mem.append_turn(external_id, role="assistant", content=reply, ts=datetime.now(timezone.utc))
-    return {"external_id": external_id, "reply": reply, "routed_to": "fallback"}
+    return {"external_id": external_id, "reply": reply, "routed_to": "no_answer"}
