@@ -1,0 +1,26 @@
+sku,name,category,price_etb,unit,stock_status,description,delivery_notes
+COF-250-YIRG,Yirgacheffe Coffee Beans (Medium Roast),Coffee,650,250g,in_stock,Floral aroma with citrus notes. Whole beans.,Keep sealed. Store cool and dry.
+COF-1KG-YIRG,Yirgacheffe Coffee Beans (Medium Roast),Coffee,2350,1kg,in_stock,Best value pack. Whole beans.,Keep sealed. Store cool and dry.
+COF-250-SID,Sidamo Coffee Beans (Dark Roast),Coffee,620,250g,in_stock,Rich body with chocolate finish. Whole beans.,Keep sealed. Store cool and dry.
+COF-1KG-SID,Sidamo Coffee Beans (Dark Roast),Coffee,2250,1kg,low_stock,Strong roast profile for espresso and macchiato.,Keep sealed. Store cool and dry.
+COF-250-GRD-ESP,Ground Coffee (Espresso Grind),Coffee,660,250g,in_stock,Pre-ground espresso grind for home machines.,Use within 2 weeks after opening.
+COF-250-GRD-FLT,Ground Coffee (Filter Grind),Coffee,660,250g,in_stock,Pre-ground for pour-over and drip brewers.,Use within 2 weeks after opening.
+TEA-100-BLACK,Ethiopian Black Tea,Tea,180,100g,in_stock,Classic black tea. Bright and smooth.,Store in airtight container.
+TEA-200-BLACK,Ethiopian Black Tea,Tea,320,200g,in_stock,Family pack black tea.,Store in airtight container.
+TEA-100-GREEN,Green Tea (Loose Leaf),Tea,220,100g,in_stock,Light, fresh green tea flavor.,Store in airtight container.
+TEA-20-CHAM,Chamomile Tea Bags,Tea,240,20 bags,in_stock,Caffeine-free herbal tea for evenings.,Keep away from moisture.
+HNY-500-FLOR,Wildflower Honey (Glass Jar),Honey,520,500g,in_stock,Natural honey with mixed floral sources.,Handle with care. Glass jar.
+HNY-1KG-FLOR,Wildflower Honey (Glass Jar),Honey,980,1kg,in_stock,Large jar for families.,Handle with care. Glass jar.
+HNY-500-WHT,White Honey (Tigray Style),Honey,690,500g,low_stock,Creamy texture with mild sweetness.,Handle with care. Glass jar.
+SPC-100-BER,Berbere Spice Blend,Spices,160,100g,in_stock,Traditional berbere blend for stews and sauces.,Store sealed. Avoid heat.
+SPC-250-BER,Berbere Spice Blend,Spices,340,250g,in_stock,Value pack berbere.,Store sealed. Avoid heat.
+SPC-100-MIT,Mitir Shiro Powder,Spices,180,100g,in_stock,Shiro base for quick meals.,Store sealed. Avoid moisture.
+SPC-250-MIT,Mitir Shiro Powder,Spices,380,250g,in_stock,Family pack shiro powder.,Store sealed. Avoid moisture.
+SPC-100-TIM,Timiz (Black Cumin),Spices,210,100g,in_stock,Aromatic spice for breads and teas.,Store sealed. Avoid heat.
+SPC-100-KOR,Korarima (Ethiopian Cardamom),Spices,290,50g,in_stock,Premium korarima pods for coffee and food.,Store sealed. Avoid heat.
+SPC-100-GIN,Ginger Powder,Spices,150,100g,in_stock,Finely ground ginger powder.,Store sealed. Avoid moisture.
+SPC-100-TUR,Turmeric Powder,Spices,140,100g,in_stock,Bright turmeric for sauces and tea.,Store sealed. Avoid moisture.
+SWE-200-CHOC,Dark Chocolate Bar,Snacks,220,200g,in_stock,Dark chocolate with smooth finish.,Keep cool.
+SWE-100-SES,Sesame Brittle (Sweets),Snacks,90,100g,in_stock,Crispy sesame snack.,Keep sealed to stay crisp.
+DRK-1L-JUS,Mango Juice,Drinks,160,1L,in_stock,Ready-to-drink mango juice.,Chill after opening.
+DRK-500-WTR,Spring Water,Drinks,25,500ml,in_stock,Bottled water.,No special handling.
