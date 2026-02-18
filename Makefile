@@ -1,4 +1,4 @@
-.PHONY: dev down logs api-shell worker-shell fmt test migrate seed
+.PHONY: dev down logs api-shell worker-shell fmt test migrate seed ingest-kb
 
 dev:
 	docker compose up --build
@@ -26,3 +26,6 @@ migrate:
 
 seed:
 	docker compose exec api python /app/scripts/dev/seed_demo.py
+
+ingest-kb:
+	docker compose exec api python -m app.rag.ingest_kb --kb-path /app/kb

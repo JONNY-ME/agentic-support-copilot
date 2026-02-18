@@ -7,7 +7,7 @@ from sqlalchemy.dialects.postgresql import UUID
 
 from app.db.base import Base
 
-EMBEDDING_DIM = int(os.getenv("EMBEDDING_DIM", "1536"))
+EMBEDDING_DIM = int(os.getenv("EMBEDDING_DIM", "3072"))
 
 
 class KBDocument(Base):

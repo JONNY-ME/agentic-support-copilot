@@ -18,7 +18,7 @@ from app.core.llm_client import embed_texts
 from app.db.models import KBDocument, KBChunk
 from app.db.session import SessionLocal
 
-EMBEDDING_DIM = int(os.getenv("EMBEDDING_DIM", "1536"))
+EMBEDDING_DIM = int(os.getenv("EMBEDDING_DIM", "3072"))
 
 def utcnow():
     return datetime.now(timezone.utc)
@@ -29,7 +29,15 @@ def normalize_text(s: str) -> str:
     s = re.sub(r"\n{3,}", "\n\n", s)
     return s.strip()
 
-def chunk_by_tokens(text: str, max_tokens: int = 450, overlap: int = 60):
+def chunk_by_tokens(
+    text: str,
+    max_tokens: int | None = None,
+    overlap: int | None = None,
+):
+    if max_tokens is None:
+        max_tokens = int(os.getenv("RAG_CHUNK_TOKENS", "450"))
+    if overlap is None:
+        overlap = int(os.getenv("RAG_CHUNK_OVERLAP", "60"))
     enc = tiktoken.get_encoding("cl100k_base")
     tokens = enc.encode(text)
     if not tokens:
